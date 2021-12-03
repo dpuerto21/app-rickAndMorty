@@ -1,0 +1,25 @@
+<p-table [columns]="selectedColumns" [value]="location"  responsiveLayout="scroll">
+    <ng-template pTemplate="caption">
+        <p-multiSelect [options]="cols" [(ngModel)]="selectedColumns" optionLabel="header"
+            selectedItemsLabel="{0} columns selected" [style]="{minWidth: '200px'}" placeholder="Choose Columns"></p-multiSelect>
+    </ng-template>
+    <ng-template pTemplate="header" let-loc>
+        <tr>
+
+            <th *ngFor="let col of loc">
+                {{col.field}}
+            </th>
+        </tr>
+    </ng-template>
+    <ng-template pTemplate="body" let-loc let-columns="columns">
+        <tr>
+            <!-- <td>{{loc.dimension}}</td> -->
+            <td *ngFor="let col of columns">
+                {{loc[col.header]}}
+            </td>
+            <td>
+                {{loc.created|date}}
+            </td>
+        </tr>
+    </ng-template>
+</p-table>

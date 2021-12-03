@@ -1,0 +1,71 @@
+<div  class="p-grid table-demo">
+	<div class="p-col-12">
+		<div class="card">
+            <h4> Serie De Netflix</h4>
+
+			<p>Tabla organizada por personajes  </p>
+            <p-table [columns]="selectedColums" [value]="personajes"  selectionMode="single" [(selection)]="select"  dataKey="name" responsiveLayout="scroll" [paginator]="true" [rows]="20" [showCurrentPageReport]="true"
+            currentPageReportTemplate="Mostrando {first} a {last} De {totalRecords} personajes"
+            [rowsPerPageOptions]="[10,15,20]"
+            [lazy]="true"
+            (onLazyLoad)="loadPersonajes($event)"
+            [totalRecords]="datasource?.info.count">
+          <ng-template pTemplate="caption">
+        <p-multiSelect [options]="cols" [(ngModel)]="selectedColums" optionLabel="header"
+            selectedItemsLabel="{0} columns selected" [style]="{minWidth: '200px'}" placeholder="Choose Columns"></p-multiSelect>
+    </ng-template>
+                <ng-template pTemplate="header" let-cols>
+
+                    <tr>
+                        <th></th>
+                        <th  pSortableColumn="header"*ngFor="let col of cols" >{{col.header}} <p-sortIcon field="field"></p-sortIcon></th>
+                        <th > Location </th>
+                        <th > Image </th>
+                        <th > Rating </th>
+                        <th > species </th>
+                        <th > status </th>
+                    </tr>
+                </ng-template>
+                <ng-template pTemplate="body" let-personaje let-cols="columns" let-expanded="expanded"  >
+                    <tr [pSelectableRow]="personaje">
+                    <td>
+                     <button type="button" pButton pRipple [pRowToggler]="personaje" class="p-button-text p-button-rounded p-button-plain" [icon]="expanded ? 'pi pi-chevron-down' : 'pi pi-chevron-right'"></button>
+
+                    </td>
+                         <td class="name"   *ngFor="let col of cols">{{ personaje[col.field]|slice:0:15}}</td>
+                         <td class="name">{{ personaje.origin.name|slice:0:7}}</td>
+                          <td>  <div class="img"> <img [src]="personaje.image" [alt]="personajes.name"> </div></td>
+                         <td><p-rating [(ngModel)]="personaje.id" [cancel]="false"  stars="3"></p-rating></td>
+                        <td><span [class]="'species species-' + personaje.species">{{personaje.species}}</span></td>
+                        <td><span [class]="'etiqueta status-' + personaje.status">{{personaje.status}}</span> </td>
+
+                    </tr>
+
+
+                </ng-template>
+                <!-- DESCRIPTION -->
+    <ng-template  pTemplate="rowexpansion" >
+        <tr>
+            <td colspan="7">
+                <div class="p-p-3">
+                    <p-table [value]="personajes" dataKey="id" >
+                        <ng-template pTemplate="header" >
+                            <tr>
+                                <th  pSortableColumn="name"  > Episodes <p-sortIcon field="name"></p-sortIcon></th>
+                            </tr>
+                        </ng-template>
+                        <ng-template pTemplate="body" let-personaje >
+
+                            <tr >
+                                <td  class="name">{{personaje.episode}}</td>
+                            </tr>
+                        </ng-template>
+                    </p-table>
+                </div>
+            </td>
+        </tr>
+    </ng-template>
+            </p-table>
+        </div>
+    </div>
+</div>
