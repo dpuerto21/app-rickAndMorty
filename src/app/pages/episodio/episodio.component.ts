@@ -3,30 +3,26 @@ import { Episode } from 'src/app/demo/domain/Episodios';
 import { EpisodiosService } from '../../demo/service/episodios.service';
 
 @Component({
-	selector: 'app-episodio',
-	templateUrl: './episodio.component.html',
-	styleUrls: [ './episodio.component.scss' ]
+  selector: 'app-episodio',
+  templateUrl: './episodio.component.html',
+  styleUrls: ['./episodio.component.scss'],
 })
 export class EpisodioComponent implements OnInit {
+  id: number[] = [];
 
-    id: number[] = [];
+  resultEpisode: Episode[];
 
-    resultEpisode: Episode[];
+  constructor(private episodiosService: EpisodiosService) {}
 
-	constructor(private episodiosService: EpisodiosService) {}
+  ngOnInit(): void {
+    this.episodeResults();
+  }
 
-    ngOnInit(): void {
-        this.episodeResults()
-    }
+  episodeResults() {
+    this.episodiosService.getepisode().subscribe(episoderesp => {
+      this.resultEpisode = episoderesp.results;
 
-	episodeResults() {
-        this.episodiosService.getepisode().subscribe((episoderesp) => {
-
-            this.resultEpisode = episoderesp.results
-
-            console.log(this.resultEpisode);
-        });
-
-
-	}
+      console.log(this.resultEpisode);
+    });
+  }
 }

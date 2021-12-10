@@ -1,5 +1,5 @@
 import { NgModule } from '@angular/core';
-import { FormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
 import { BrowserModule } from '@angular/platform-browser';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
@@ -90,7 +90,6 @@ import { CardModule } from 'primeng/card';
 
 import { AppComponent } from './app.component';
 import { AppMainComponent } from './app.main.component';
-import { AppConfigComponent } from './app.config.component';
 import { AppRightmenuComponent } from './app.rightmenu.component';
 import { AppMenuComponent } from './app.menu.component';
 import { AppMenuitemComponent } from './app.menuitem.component';
@@ -124,6 +123,8 @@ import { CardMortyComponent } from './shared/card-morty/card-morty.component';
 import { PipesModule } from './pipes/pipes.module';
 import { BusquedaComponent } from './pages/busqueda/busqueda.component';
 import { ResultEntregaComponent } from './pages/result-entrega/result-entrega.component';
+import { BusquedasPadreComponent } from './pages/busquedas-padre/busquedas-padre.component';
+
 
 
 FullCalendarModule.registerPlugins([ dayGridPlugin, timeGridPlugin, interactionPlugin ]);
@@ -131,7 +132,6 @@ FullCalendarModule.registerPlugins([ dayGridPlugin, timeGridPlugin, interactionP
 @NgModule({
 	imports: [
 		BrowserModule,
-		FormsModule,
 		AppRoutingModule,
 		HttpClientModule,
 		BrowserAnimationsModule,
@@ -217,7 +217,9 @@ FullCalendarModule.registerPlugins([ dayGridPlugin, timeGridPlugin, interactionP
 		CardModule,
         AppCodeModule,
         PipesModule,
-		CommonModule
+		CommonModule,
+		FormsModule,
+		ReactiveFormsModule,
 	],
 	declarations: [
 		AppComponent,
@@ -225,7 +227,6 @@ FullCalendarModule.registerPlugins([ dayGridPlugin, timeGridPlugin, interactionP
 		AppRightmenuComponent,
 		AppMenuComponent,
 		AppMenuitemComponent,
-		AppConfigComponent,
 		AppTopBarComponent,
 		AppSearchComponent,
 		AppFooterComponent,
@@ -240,6 +241,9 @@ FullCalendarModule.registerPlugins([ dayGridPlugin, timeGridPlugin, interactionP
         CardMortyComponent,
         BusquedaComponent,
         ResultEntregaComponent,
+        BusquedasPadreComponent,
+      
+     
 
 
 	],

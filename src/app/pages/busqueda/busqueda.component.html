@@ -1,7 +1,42 @@
-
-<span class="p-input-icon-right spand">
-    <i class="pi pi-spin pi-search "></i>
-    <input type="text" class="input" pInputText placeholder="Busquedas..." >
+<span class="p-input-icon-right spand" [formGroup]="busquedaInput">
+  <input
+   formControlName="busqueda"
+    type="text"
+    pInputText
+    ngModel
+    name="personajes"
+    class="input"
+    placeholder="Busquedas..."
+    required
+    id="m"
+    minlength="4"
+    autocomplete="off"
+  />
+  <i class="pi pi-spin pi-search" id="m"></i>
 </span>
-<br>
-<app-result-entrega> </app-result-entrega>
+<span *ngIf="campoValido('busqueda')">
+  <p-messages severity="error">
+    <ng-template pTemplate>
+      <span> Debe ser mayor o igual a 4 letras</span>
+    </ng-template>
+  </p-messages>
+</span>
+<!-- 
+<div>
+    <span class="p-input-icon-right spand">
+        <input type="text"  pInputText  ngModel  name="ids" class="input" placeholder="Busquedas..."  id="m"/>
+        <i class="pi pi-spin pi-search" id="m"></i>
+    </span>   
+</div>
+<div>
+    <button type="submit"> guardar  </button>
+</div> -->
+
+<h5>Status</h5>
+<pre>{{ busquedaInput.status | json }} </pre>
+<h5>Valid</h5>
+<pre>{{ busquedaInput.valid | json }}</pre>
+<h5>Pristine</h5>
+<pre>{{ busquedaInput.pristine | json }}</pre>
+<h5>Touched</h5>
+<pre>{{ busquedaInput.touched | json }}</pre> 

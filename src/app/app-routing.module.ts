@@ -5,15 +5,12 @@ import { AppNotfoundComponent } from './pages/app.notfound.component';
 import { AppErrorComponent } from './pages/app.error.component';
 import { AppLoginComponent } from './pages/app.login.component';
 import { TableDemoComponent } from './demo/view/tabledemo.component';
-
 import { AppCrudComponent } from './pages/app.crud.component';
-
-// import { CardMortyComponent } from './shared/card-morty/card-morty.component';
-import { BusquedaComponent } from './pages/busqueda/busqueda.component';
 import { UbicacionComponent } from './pages/ubicacion/ubicacion.component';
 import { PersonajesComponent } from './pages/personajes/personajes.component';
 import { EpisodioComponent } from './pages/episodio/episodio.component';
-import { CardMortyComponent } from './shared/card-morty/card-morty.component';
+import { BusquedasPadreComponent } from './pages/busquedas-padre/busquedas-padre.component';
+
 
 @NgModule({
 	imports: [
@@ -28,7 +25,7 @@ import { CardMortyComponent } from './shared/card-morty/card-morty.component';
 						{ path: 'episodes', component: EpisodioComponent },
 						{ path: 'personajes', component: PersonajesComponent },
 						{ path: 'ubicaion', component: UbicacionComponent },
-						{ path: 'busqueda', component: BusquedaComponent }
+						{ path: 'busqueda', component: BusquedasPadreComponent }
 					]
 				},
 				{ path: 'error', component: AppErrorComponent },

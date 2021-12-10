@@ -22,12 +22,28 @@ $gutter: 1rem; //for primeflex grid system
   justify-content: space-around;
 }
 .input{
-    width: 50%;
+    width: 100%;
 
 }
 
 .spand{
- width: 70%;
+ width: 60%;
 }
+.contenedora {
+
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  grid-gap: 15px;
+
+}
+.imgs {
+  display: flex;
+  align-content: center;
+  width: 100%;
+  height: 100%;
+  border-radius: 8px;
+  margin: 0px;
+}
+
 
 

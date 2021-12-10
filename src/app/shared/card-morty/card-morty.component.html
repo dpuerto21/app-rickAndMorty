@@ -1,7 +1,7 @@
 <div class="contenedora">
         <p-card  *ngFor=" let personaje of Personajes" header="{{personaje.name}}" subheader="{{personaje.status}}"  styleClass="p-card-shadow">
             <ng-template pTemplate="header">
-                <img class="img" alt="Card" [src]="personaje.image">
+                <img class="imgs" alt="Card" [src]="personaje.image">
             </ng-template>
             <pre>{{personaje.name|json}}</pre>
             <ng-template pTemplate="footer">

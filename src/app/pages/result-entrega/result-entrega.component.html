@@ -1,3 +1,15 @@
 <br>
 
-<p>result-entrega works!</p>
+
+<div class="contenedora">
+    <p-card  *ngFor=" let personaje of personajes" header="{{personaje.name}}" subheader="{{personaje.status}}"  styleClass="p-card-shadow">
+        <ng-template pTemplate="header">
+            <img class="imgs" alt="Card" [src]="personaje.image">
+        </ng-template>
+        <pre>{{personaje.name|json}}</pre>
+        <ng-template pTemplate="footer">
+
+            <p-button label="Cancel"  styleClass="p-button-secondary" [style]="{'margin-left': '.5em'}"></p-button>
+        </ng-template>
+    </p-card>
+</div>
